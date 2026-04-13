@@ -16,11 +16,20 @@ function App() {
 
   const carregarTarefas = async () => {
     try {
-      const response = await fetch(API_URL);
+      const response = await fetch(`${API_URL}/api/tarefas`);
       const data = await response.json();
-      setTarefas(data);
+
+      console.log("Resposta da API:", data);
+
+      if (Array.isArray(data)) {
+        setTarefas(data);
+      } else {
+        console.error("A API não retornou um array:", data);
+        setTarefas([]);
+      }
     } catch (error) {
       console.error("Erro ao carregar tarefas:", error);
+      setTarefas([]);
     }
   };
 
@@ -133,10 +142,8 @@ function App() {
 
       <div className="lista">
         <h2>Lista de Tarefas</h2>
-
-        {tarefas.length === 0 ? (
-          <p>Nenhuma tarefa cadastrada.</p>
-        ) : (
+        
+        {Array.isArray(tarefas) && tarefas.length > 0 ? (
           tarefas.map((tarefa) => (
             <div className="card-tarefa" key={tarefa.id}>
               <h3>{tarefa.titulo}</h3>
@@ -160,6 +167,8 @@ function App() {
               </div>
             </div>
           ))
+        ) : (
+          <p>Nenhuma tarefa cadastrada.</p>
         )}
       </div>
     </div>
