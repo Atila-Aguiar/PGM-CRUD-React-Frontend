@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/pgm-crud-python-frontend/static/css/main.81dd3369.css",
+    "main.js": "/pgm-crud-python-frontend/static/js/main.fe435a21.js",
+    "index.html": "/pgm-crud-python-frontend/index.html",
+    "main.81dd3369.css.map": "/pgm-crud-python-frontend/static/css/main.81dd3369.css.map",
+    "main.fe435a21.js.map": "/pgm-crud-python-frontend/static/js/main.fe435a21.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.81dd3369.css",
+    "static/js/main.fe435a21.js"
+  ]
+}
